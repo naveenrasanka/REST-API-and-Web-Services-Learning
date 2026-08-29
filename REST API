@@ -1,0 +1,14 @@
+C R U D  Operation
+
+HTTP Method
+Create -> POST
+Read -> GET
+Update -> PUT
+Delete -> DELETE
+
+Implementation type
+ 1.Jersey
+ 2.Spring
+
+ RestFull Web Services
+  
