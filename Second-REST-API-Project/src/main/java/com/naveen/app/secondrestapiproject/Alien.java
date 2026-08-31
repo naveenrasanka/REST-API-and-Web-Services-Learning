@@ -1,7 +1,6 @@
 package com.naveen.app.secondrestapiproject;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
-import org.glassfish.jersey.message.XmlHeader;
 
 @XmlRootElement
 public class Alien{
@@ -22,5 +21,13 @@ public class Alien{
 
     public void setPoint(int point) {
         this.point = point;
+    }
+
+    @Override
+    public String toString() {
+        return "Alien{" +
+                "name='" + name + '\'' +
+                ", point=" + point +
+                '}';
     }
 }
