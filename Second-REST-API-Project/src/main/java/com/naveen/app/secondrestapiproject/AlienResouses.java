@@ -10,7 +10,7 @@ import java.util.List;
 public class AlienResouses {
 
 @GET    //fetching resource
-@Produces(MediaType.APPLICATION_XML)
+@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 ///tried JSon
 //@Produces(MediaType.APPLICATION_JSON)
 public List<Alien> getAlien(){
@@ -35,7 +35,7 @@ public List<Alien> getAlien(){
     @GET
     @Path("alien/{point}")//fetching resource with place holder
    // @Produces(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
     public Alien getaAlien(@PathParam("point")int point){
         AlienRepository repo=new AlienRepository();
         return repo.getAlien(point);
@@ -43,6 +43,7 @@ public List<Alien> getAlien(){
     }
 @POST  //creating a resource
 @Path("alien")
+@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 public Alien creatAlien(Alien a1){
 
     AlienRepository repo=new AlienRepository();
