@@ -1,9 +1,6 @@
 package com.naveen.app.secondrestapiproject;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.util.List;
@@ -33,6 +30,14 @@ public List<Alien> getAlien(){
     return repo.getAliens();
 
 }
+    @GET
+    @Path("alien/{point}")//fetching resource with place holder
+    @Produces(MediaType.APPLICATION_XML)
+    public Alien getaAlien(@PathParam("point")int point){
+        AlienRepository repo=new AlienRepository();
+        return repo.getAlien(point);
+
+    }
 @POST  //creating a resource
 @Path("alien")
 public Alien creatAlien(Alien a1){
