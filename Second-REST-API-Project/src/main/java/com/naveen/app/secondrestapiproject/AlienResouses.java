@@ -11,6 +11,8 @@ public class AlienResouses {
 
 @GET    //fetching resource
 @Produces(MediaType.APPLICATION_XML)
+///tried JSon
+//@Produces(MediaType.APPLICATION_JSON)
 public List<Alien> getAlien(){
     System.out.println("Get Alien Called...");
 //
@@ -32,7 +34,8 @@ public List<Alien> getAlien(){
 }
     @GET
     @Path("alien/{point}")//fetching resource with place holder
-    @Produces(MediaType.APPLICATION_XML)
+   // @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_JSON)
     public Alien getaAlien(@PathParam("point")int point){
         AlienRepository repo=new AlienRepository();
         return repo.getAlien(point);
