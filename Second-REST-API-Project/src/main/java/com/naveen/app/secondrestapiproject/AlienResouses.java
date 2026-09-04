@@ -44,6 +44,7 @@ public List<Alien> getAlien(){
 @POST  //creating a resource
 @Path("alien")
 @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+//@Consumes(MediaType.APPLICATION_XML) //Speicifing type XML or Json
 public Alien creatAlien(Alien a1){
 
     AlienRepository repo=new AlienRepository();
@@ -52,5 +53,33 @@ public Alien creatAlien(Alien a1){
     return  a1;
 
 }
+    @PUT  //creating a resource
+    @Path("alien")
+    @Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+    public Alien updateAlien(Alien a1){
+
+        AlienRepository repo=new AlienRepository();
+        System.out.println(a1);
+        if(repo.getAlien(a1.getPoint()).getPoint()==0){
+            repo.create(a1);
+        }else {
+            repo.update(a1);
+        }
+
+        return  a1;
+
+    }
+@DELETE
+@Path("alien/{id}")
+@Produces({MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
+public Alien deleteAlien(@PathParam("id")int id){
+        AlienRepository repo =new AlienRepository();
+        Alien a=repo.getAlien(id);
+
+          if(a.getPoint()!=0){
+              repo.delete(id);
+          }
+          return a;
+    }
 
 }

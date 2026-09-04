@@ -23,7 +23,7 @@ public class AlienRepository {
         } catch (Exception e) {
 
             System.out.println(e.getMessage());
-        }
+        }   
 //        aliens=new ArrayList<>();
 //
 //        Alien a1=new Alien();
@@ -76,8 +76,8 @@ public class AlienRepository {
 
             if (rs.next()){
 
-                a.setPoint(rs.getInt(1));
-                a.setName(rs.getString(2));
+                a.setPoint(rs.getInt(2));
+                a.setName(rs.getString(1));
 
             }
 
@@ -103,5 +103,37 @@ public class AlienRepository {
             System.out.println(e.getMessage());
         }
 
+    }
+    public void update(Alien a1) {
+        String query="UPDATE alien SET name=? WHERE point=?";
+
+        try {
+            PreparedStatement ps=con.prepareStatement(query);
+
+            ps.setString(1,a1.getName());
+            ps.setInt(2,a1.getPoint());
+
+            int row= ps.executeUpdate();
+
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    public void delete(int id) {
+        String query="DELETE FROM alien WHERE point=?";
+
+        try {
+            PreparedStatement ps=con.prepareStatement(query);
+            ps.setInt(1,id);
+
+            int row= ps.executeUpdate();
+
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
