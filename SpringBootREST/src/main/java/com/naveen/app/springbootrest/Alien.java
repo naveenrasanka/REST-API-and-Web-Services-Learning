@@ -1,8 +1,17 @@
 package com.naveen.app.springbootrest;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@Entity
+@XmlRootElement
 public class Alien {
-    private String name;
+
+    @Id
     private int point;
+    private String name;
+
 
     public String getName() {
         return name;
