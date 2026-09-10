@@ -6,3 +6,6 @@ public interface AlienRepository extends CrudRepository<Alien,Integer> {
 
 
 }
+
+//need to learn spring and ORM
+
